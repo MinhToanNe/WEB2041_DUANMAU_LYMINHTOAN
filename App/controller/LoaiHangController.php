@@ -16,7 +16,16 @@ class Loaihangcontroller extends Controller
     }
     
     public function add()
-    { $this->view("Adminlayout", [
+    { 
+        if($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+            $name = $_POST['tenloai'];
+            $this->loaihang->CreateLoaiHang($name);
+            header ("Location:/loaihang");
+        }
+        
+        
+        $this->view("Adminlayout", [
         "pages" => "loaihang",
         "block" => "loaihang/themloaihang"
        

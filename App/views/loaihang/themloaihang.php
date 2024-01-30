@@ -3,11 +3,7 @@
                 <h1>Thêm loại hàng hóa</h1>
             </div>
             <div class="row formcontent">
-                <form action="#" method="post">
-                    <div class="row mb10">
-                    Mã loại <br>
-                    <input type="text" name="maloai" disabled>
-                    </div>
+                <form action="" method="post">
                     <div class="row mb10">
                     Tên loại <br>
                     <input type="text" name="tenloai"></div>

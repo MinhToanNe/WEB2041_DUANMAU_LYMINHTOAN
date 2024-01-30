@@ -9,11 +9,11 @@ class LoaihangModel extends Database
 
     }
 
-    // public function CreateLoaiHang($name)
-    // {
-    //     $stmt = "INSERT INTO loai(`ten_loai`) VALUES (?)";
-    //     $stmt->bind_param('s',$name);
+    public function CreateLoaiHang($name)
+    {
+        $stmt = "INSERT INTO loai(`ten_loai`) VALUES (?)";
+        $this->pdo_execute($stmt,$name);
 
 
-    // }
+    }
 }
