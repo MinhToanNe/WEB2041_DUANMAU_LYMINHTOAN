@@ -23,10 +23,18 @@ class SanPhamModel extends Database
 
     }
 
-    public function editSanPham()
+    public function editSanPham($name, $price, $salePrice, $image, $content, $category)
     {
         $id = $_GET['id'];
         $sql = "UPDATE hang_hoa SET ten_hh = ?, don_gia = ?, giam_gia = ?, hinh = ?, mo_ta = ?, ma_loai = ?
                 WHERE ma_hh = $id";
+        return $this->pdo_execute($sql,$name, $price, $salePrice, $image, $content, $category);
+    }
+
+    public function getOneSanPham()
+    {
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM hang_hoa WHERE ma_hh = ?";
+        return $this->pdo_query($sql,$id);
     }
 }

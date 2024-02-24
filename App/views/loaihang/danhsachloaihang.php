@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="row formtitle">
+<div class="row formtitle "  style = "margin:0;">
     <h1>Danh sách loại hàng</h1>
   </div>
-  <div class="row formcontent">
+  <div class="row formcontent " style = "margin:0;margin-left:15px;">
     <div class="row mb10 formdsloai">
       <table>
         <tr>

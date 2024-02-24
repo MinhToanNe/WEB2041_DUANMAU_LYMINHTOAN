@@ -1,9 +1,9 @@
 
 <div class="row">
-  <div class="row formtitle m-0">
+  <div class="row formtitle "  style = "margin:0;">
     <h1>Danh sách sản phẩm</h1>
   </div>
-  <div class="row formcontent">
+  <div class="row formcontent " style = "margin:0;margin-left:15px;">
     <div class="row mb10 formdsloai">
       <table>
         <tr>
@@ -29,7 +29,7 @@
                   <p style="color:red"><?=!empty($product['giam_gia'])?number_format($product['giam_gia'],0,"",".").'VNĐ':''?> </p>
                 </td>
               <td>
-                <a href="/loaihang/edit?id=">
+                <a href="/admin/edit?id=<?=$product['ma_hh'] ?>">
                      <input type="button" name="" id="" value="Sửa" />
                 </a>
                 <a href="/admin/delete?id=<?=$product['ma_hh'] ?>">
