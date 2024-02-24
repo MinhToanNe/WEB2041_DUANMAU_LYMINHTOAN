@@ -24,20 +24,19 @@ class Database{
 //Xóa $sql = "DELETE FROM loai WHERE ma_loai=?";
 //Ví dụ $sql = "INSERT INTO users (name,email,password) VALUES(?,?,?)";
 // pdo_execute($sql, "testpdo", "pdo@gmail.com", "12345pdo");
-    function pdo_execute($sql){
-        $sql_args = array_slice(func_get_args(), 1);
-        try{
-            $conn = $this->pdo_get_connection();
-            $stmt = $conn->prepare($sql);
-            $stmt->execute($sql_args);
-        }
-        catch(PDOException $e){
-            throw $e;
-        }
-        finally{
-            unset($conn);
-        }
+function pdo_execute($sql) {
+    $sql_args = array_slice(func_get_args(), 1);
+    try {
+        $conn = $this->pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $success = $stmt->execute($sql_args);
+        return $success; // Trả về true nếu thành công, ngược lại trả về false
+    } catch (PDOException $e) {
+        throw $e;
+    } finally {
+        unset($conn);
     }
+}
 
 
 
@@ -71,7 +70,7 @@ class Database{
             $conn = $this->pdo_get_connection();
             $stmt = $conn->prepare($sql);
             $stmt->execute($sql_args);
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $row = $stmt->fetchAll();
             return $row;
         }
         catch(PDOException $e){

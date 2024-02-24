@@ -12,14 +12,21 @@
           <th></th>
         </tr>
         <?php if (isset($data["loaihang"])) : ?>
+
           <?php foreach ($data["loaihang"] as $DanhSachLoaiHang) : ?>
             <tr>
               <td><input type="checkbox" /></td>
               <td><?= $DanhSachLoaiHang["ma_loai"] ?></td>
               <td><?= $DanhSachLoaiHang["ten_loai"] ?></td>
               <td>
-                <input type="button" name="" id="" value="Sửa" />
-                <input type="button" value="Xóa" />
+                <a href="/loaihang/edit?id=<?=$DanhSachLoaiHang['ma_loai']?>">
+                     <input type="button" name="" id="" value="Sửa" />
+                </a>
+             
+                <a href="/loaihang/delete?id=<?=$DanhSachLoaiHang['ma_loai']?>">
+                  <input type="button" value="Xóa" />
+                </a>
+                
               </td>
             </tr>
           <?php endforeach ?>
@@ -35,6 +42,7 @@
   </div>
 </div>
 </div>
+
 </body>
 
 </html>

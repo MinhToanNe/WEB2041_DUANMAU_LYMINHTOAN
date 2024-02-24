@@ -34,19 +34,27 @@
         </div>
         <div class="row mb">
             <div class="boxtrai mr">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="banner">
                         <img src="img/banner-polo (4).jpg" alt="">
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
-                    <div class="boxsp mr">
-                        <div class="img row">
-                            <img src="img/sanpham.jpeg" alt="dang cap nhat">
-                        </div>
-                        <p>200.000</p>
-                        <a href="#">iphone 15</a>
-                    </div>
+                    <?php if (isset($data['Product'])) : ?>
+                        <?php foreach ($data['Product'] as $product) : ?>
+                            <div class="boxsp mr ">
+                                <div class="img row">
+                                    <img src="<?= $product['hinh'] ?>" alt="dang cap nhat">
+                                </div>
+                                <p style="color:green">
+                                    <?= !empty($product['giam_gia']) ? '<del>' : '' ?>
+                                    <?= number_format($product['don_gia'], 0, "", ".") ?>
+                                    <?= empty($product['giam_gia']) ? '</del>' : '' ?> VNĐ</p>
+                                <p style="color:red"><?= !empty($product['giam_gia']) ? number_format($product['giam_gia'], 0, "", ".") . 'VNĐ' : '' ?>
+                                    <a href=""><?= $product['ten_hh'] ?></a>
+                            </div>
+                        <?php endforeach ?>
+                    <?php endif ?>
                 </div>
             </div>
 
@@ -54,16 +62,19 @@
                 <div class="row mb">
                     <div class="boxtitle">Tài khoản</div>
                     <div class="boxcontent formtaikhoan">
-                        <form action="#" method="post">
+                        <form action="" method="post">
                             <div class="row mb10">
                                 Tên đăng nhập
                                 <br>
                                 <input type="text" name="user" id="">
+                                <p style="color:red"><?= (isset($data['validate']['validateUser'])) ? $data['validate']['validateUser'] : '' ?></p>
+                                <p style="color:red"><?= (isset($data['validate']['Error'])) ? $data['validate']['Error'] : '' ?></p>
                             </div>
                             <div class="row mb10">
                                 Mật khẩu
                                 <br>
                                 <input type="password" name="pass" id="">
+                                <p style="color:red"><?= (isset($data['validate']['validatePassword'])) ? $data['validate']['validatePassword'] : '' ?></p>
                             </div>
                             <div class="row mb10">
                                 <input type="checkbox">
@@ -129,16 +140,6 @@
                         <form action="#" method="post">
                             <input type="text" placeholder="Tìm kiếm tại đây">
                         </form>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="boxtitle">Top 10 yêu thích</div>
-                    <div class="row boxcontent">
-                        <div class="row mb10 top10">
-                            <img src="img/sanpham.jpeg" alt="dang cap nhat">
-                            <a href="#">iphone 15</a>
-                        </div>
-
                     </div>
                 </div>
             </div>
