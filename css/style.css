@@ -134,11 +134,12 @@
 .boxsp {
     float: left;
     width: 30%;
-    min-height: 350px;
+    min-height: 400px;
     border: 1px #EEE solid;
     border-radius: 5px;
     margin-bottom: 20px;
     transition: 0.5s;
+    background-color: #e9d7d7;
 }
 
 .boxsp:hover {

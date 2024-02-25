@@ -22,6 +22,8 @@
             <ul>
                 <li><a href="/loaihang">Danh mục</a></li>
                 <li><a href="/admin">Hàng hóa</a></li>
+                <li><a href="/user">Người dùng</a></li>
+                <li><a href="/user/logout">Thoát</a></li>
             </ul>
         </div>
 

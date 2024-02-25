@@ -5,6 +5,8 @@ class Loaihangcontroller extends Controller
     public function __construct()
     {
         $this->loaihang = $this->model("LoaiHangModel");
+        checkAdmin();
+
     }
     public function index()
     {

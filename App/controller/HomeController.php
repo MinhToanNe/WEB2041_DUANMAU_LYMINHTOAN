@@ -4,10 +4,12 @@ class Homecontroller extends Controller
 {
     private $UserModel;
     private $ProductModel;
+    private $categoryModel;
     public function __construct()
     {
         $this->UserModel = $this->model('UserModel');
         $this->ProductModel = $this->model('SanPhamModel');
+        $this->categoryModel = $this->model('LoaiHangModel');
     }
     public function index()
     {
@@ -17,9 +19,6 @@ class Homecontroller extends Controller
             $name = $_POST['user'];
             $pass = $_POST['pass'];
             $row = $this->UserModel->Login($name);
-            // echo '<pre>';
-            // var_dump($row);
-            // echo '</pre>';
             if(empty($_POST['user']))
             {
                 $validate += [
@@ -41,7 +40,7 @@ class Homecontroller extends Controller
             else
             {
                 $hashPassword = $row[0]['mat_khau'];
-                if(password_verify($pass,$hashPassword) && empty($validate))
+                if(password_verify($pass,$hashPassword) && empty($validate) && $row[0]['vai_tro'] == 0)
                 {
                     $_SESSION['admin_id'] = $row[0]['ma_kh'];
                     header("Location: /admin");
@@ -53,6 +52,18 @@ class Homecontroller extends Controller
         $this->view('cilent', [
             'validate' =>$validate,
             'Product' => $this->ProductModel->getAll(),
+            'category' => $this->categoryModel->GetAllLoaiHang()
         ]);
+    }
+
+    public function detailproduct()
+    {
+        if(isset($_GET['id']))
+        {
+        $this->view('detailProduct', [
+            'product' => $this->ProductModel->getOneSanPham(),
+            'category' => $this->categoryModel->GetAllLoaiHang()
+        ]);
+    }
     }
 }
