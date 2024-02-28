@@ -28,12 +28,12 @@
             </div>
             <div class="row mb10">
                 Giá <br>
-                <input type="text"  name="price" value = "<?= number_format( $product['don_gia'],0,'','.')?>">
+                <input type="text"  name="price" value = "<?= $product['don_gia']?>">
                 <p style="color:red"><?= (isset($data['validate']['validatePrice'])) ? $data['validate']['validatePrice'] : '' ?></p>
             </div>
             <div class="row mb10">
                 Giá Giảm <br>
-                <input type="text" name="saleprice" value = "<?= number_format($product['giam_gia'],0,'','.')?>">
+                <input type="text" name="saleprice" value = "<?= $product['giam_gia']?>">
                 <p style="color:red"><?= (isset($data['validate']['validateSalePrice'])) ? $data['validate']['validateSalePrice'] : '' ?></p>
             </div>
             <div class="row mb10">

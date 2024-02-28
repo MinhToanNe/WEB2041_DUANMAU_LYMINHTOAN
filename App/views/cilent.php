@@ -48,10 +48,10 @@
                                 </div>
                                 <p style="color:green">
                                     <?= !empty($product['giam_gia']) ? '<del>' : '' ?>
-                                    <?= number_format($product['don_gia'], 0, "", ".") ?>
-                                    <?= empty($product['giam_gia']) ? '</del>' : '' ?> VNĐ</p>
-                                <p style="color:red"><?= !empty($product['giam_gia']) ? number_format($product['giam_gia'], 0, "", ".") . 'VNĐ' : '' ?>
-                                    <a href="/home/detailproduct?id=<?=$product['ma_hh']?>"><?= $product['ten_hh'] ?></a>
+                                    <?= number_format($product['don_gia'], 0, "", ".") ?> 
+                                    <?= empty($product['giam_gia']) ? '</del>' : '' ?> VNĐ</p> 
+                                   <p style="color:red"><?= !empty($product['giam_gia']) ? number_format($product['giam_gia'], 0, "", ".") . 'VNĐ' : '' ?><br></p>
+                                    <a href="/home/detailproduct?id=<?=$product['ma_hh']?>"><?=$product['ten_hh'] ?></a>
                                     <input type="submit" name="addtocart" class="btn btn-success add_cart" value="Thêm giỏ hàng">
                             </div>
                         <?php endforeach ?>
